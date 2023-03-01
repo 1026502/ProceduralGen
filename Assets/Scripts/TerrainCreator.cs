@@ -5,16 +5,22 @@ using UnityEngine.U2D;
 
 public class TerrainCreator : MonoBehaviour
 {
+    public GameManager gameManager;
     public SpriteShapeController shape;
     public int scale;
     public int numberofPoints = 150;
-
+    public GameObject[] spawnableObjects;
+    
     //public float ranMin;
    // public float ranMax;
 
     // Start is called before the first frame update
     void Start()
     {
+        numberofPoints = Random.Range(100, 251);
+        scale = numberofPoints * Random.Range(300, 1001);
+
+        gameManager = GetComponent<GameManager>();
         shape = GetComponent<SpriteShapeController>();
 
         shape.spline.SetPosition(2, shape.spline.GetPosition(2) + Vector3.right * scale);
@@ -36,6 +42,8 @@ public class TerrainCreator : MonoBehaviour
             shape.spline.SetLeftTangent(i, new Vector3(-1, 0, 0));
             shape.spline.SetRightTangent(i, new Vector3(1, 0, 0));
         }
+
+        Instantiate(spawnableObjects[0], shape.spline.GetPosition(numberofPoints), Quaternion.identity);
 
     }
 
