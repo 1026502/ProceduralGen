@@ -18,7 +18,7 @@ public class TerrainCreator : MonoBehaviour
     void Start()
     {
         numberofPoints = Random.Range(100, 251);
-        scale = numberofPoints * Random.Range(300, 1001);
+        scale = Random.Range(450, 1000);
 
         gameManager = GetComponent<GameManager>();
         shape = GetComponent<SpriteShapeController>();

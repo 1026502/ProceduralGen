@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        terrainCreatorScript = GetComponent<TerrainCreator>();
+        terrainCreatorScript = FindObjectOfType<TerrainCreator>();
     }
 
     private void Awake()
